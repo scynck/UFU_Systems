@@ -8,6 +8,7 @@ import os
 import glob
 import time
 import pandas as pd
+from selenium.webdriver.common.keys import Keys
 
 
 driver = webdriver.Chrome() 
@@ -29,13 +30,21 @@ password.send_keys("DonaSida1")
 button = driver.find_element(By.CLASS_NAME, "blue.medium").click()
 arvore = driver.find_element(By.ID, "tree")
 print(arvore.text)
+app = driver.find_element(By.NAME, "treeFilterText")
+app.send_keys("11.02.02.99.01")
+app.send_keys(Keys.ENTER)
+input("Digite enter para sair")
+
+
+
 #arvore1 = arvore.find_elements(By.TAG_NAME, "li")
-arvore1 = arvore.find_elements(By.XPATH, "//*[@id='361']")
+'''arvore1 = arvore.find_elements(By.XPATH, "//*[@id='361']")
 WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Educação')]"))).click()
 WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Controle')]"))).click()
 WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Cadastro do Aluno')]"))).click()
 WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), '11.02.02.99')]"))).click()
-WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), '11.02.02.99.01')]"))).click()
+WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), '11.02.02.99.01')]"))).click()'''
+
 matricula = driver.find_element(By.ID, "matricula")
 matricula.send_keys("Rafael Monteiro")
 #button1 = driver.find_element(By.CLASS_NAME, "red").click()
